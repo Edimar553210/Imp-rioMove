@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Império Move — Mudanças & Transporte de Alto Padrão</title>
-  <meta name="description" content="Império Move: mudanças de alto padrão, embalamento especializado e relocation em Portugal e Europa. Contacto via WhatsApp." />
+  <title>Império Move — Mudanças de Alto Padrão</title>
+  <meta name="description" content="Império Move: mudanças premium, embalamento especializado e relocation. Lisboa, Cascais e Estoril." />
 
   <style>
     :root{
@@ -52,6 +52,7 @@
     .brand{
       display:flex; align-items:center; gap:12px;
       font-weight:950; letter-spacing:.2px;
+      min-width: 220px;
     }
     .brand img{
       width:44px; height:44px; object-fit:contain;
@@ -134,6 +135,31 @@
       font-size:13px;
       font-weight:800;
       margin-bottom:12px;
+    }
+
+    /* Premium area chips */
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:12px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.78);
+      font-weight:850;
+      font-size:13px;
+    }
+    .chip.primary{
+      border-color: rgba(232,180,78,.40);
+      background: rgba(232,180,78,.12);
+      color: rgba(255,255,255,.92);
     }
 
     .hero{
@@ -225,10 +251,12 @@
     }
     .wa-dot{width:10px;height:10px;border-radius:99px;background:#071018; opacity:.25;}
 
-    /* MOBILE */
     @media (max-width: 980px){
       .grid{grid-template-columns:1fr}
       .two-col{grid-template-columns:1fr}
+    }
+    @media (max-width: 820px){
+      .brand{min-width:auto}
     }
     @media (max-width: 768px){
       .wrap{padding:0 16px}
@@ -250,19 +278,18 @@
           <img src="logo.png" alt="Império Move">
           <div>
             <span id="brandName">IMPÉRIO MOVE</span>
-            <small id="brandTag">Mudanças de Alto Padrão • Portugal e Europa</small>
+            <small id="brandTag">Lisboa • Cascais • Estoril • Mudanças de Alto Padrão</small>
           </div>
         </div>
 
         <div class="actions">
           <a class="btn ghost" href="#contacto" id="btnContactTop">Contacto</a>
-
-          <!-- ✅ ÚNICO "Pedir orçamento" -->
+          <!-- ✅ ÚNICO "Pedir orçamento" do site -->
           <a class="btn primary" href="#" id="btnTopCTA">Pedir orçamento</a>
         </div>
       </div>
 
-      <div class="lang">
+      <div class="lang" aria-label="Language switch">
         <span class="pill active" id="langPT">🇵🇹 PT</span>
         <span class="pill" id="langEN">🇬🇧 EN</span>
       </div>
@@ -279,10 +306,18 @@
         <h1 id="heroTitle">Mudanças de alto padrão com cuidado, discrição e pontualidade.</h1>
 
         <p class="lead" id="heroText">
-          A <b>Império Move</b> oferece um serviço premium de mudanças e transporte para clientes exigentes.
-          Atendemos <b>Lisboa</b>, <b>Cascais</b> e <b>todo Portugal</b>, com possibilidade de <b>relocation nacional e internacional</b>,
-          mediante planeamento personalizado.
+          Atendemos clientes exigentes em Lisboa e nas zonas mais valorizadas, com planeamento personalizado e execução cuidadosa do início ao fim.
         </p>
+
+        <!-- ✅ Barra premium (chips) -->
+        <div class="chips" id="chipsArea">
+          <span class="chip primary" id="chip1">Cascais</span>
+          <span class="chip primary" id="chip2">Estoril</span>
+          <span class="chip" id="chip3">Lapa</span>
+          <span class="chip" id="chip4">Restelo</span>
+          <span class="chip" id="chip5">Campo de Ourique</span>
+          <span class="chip" id="chip6">Portugal & Europa (sob consulta)</span>
+        </div>
 
         <div class="cta">
           <a class="btn" href="#" id="btnHeroWhats">WhatsApp</a>
@@ -315,8 +350,8 @@
 
         <div class="two-col">
           <div class="mini">
-            <h3 id="covTitle">📍 Cobertura</h3>
-            <p id="covText">Lisboa • Cascais • Portugal • Europa (sob consulta)</p>
+            <h3 id="covTitle">📍 Cobertura premium</h3>
+            <p id="covText"><b>Cascais • Estoril</b> • Lisboa • Lapa • Restelo • Campo de Ourique</p>
           </div>
           <div class="mini">
             <h3 id="fastTitle">🕰️ Resposta eficiente</h3>
@@ -343,11 +378,11 @@
         <div class="two-col">
           <div class="mini">
             <h3 id="h1">1) Contacto inicial</h3>
-            <p id="h1t">Envie informações básicas: origem, destino, data e tipo de imóvel.</p>
+            <p id="h1t">Envie origem, destino, data e tipo de imóvel.</p>
           </div>
           <div class="mini">
             <h3 id="h2">2) Planeamento</h3>
-            <p id="h2t">Avaliamos o volume e necessidades específicas (itens frágeis, mobiliário de valor, acessos).</p>
+            <p id="h2t">Avaliamos volume e necessidades específicas (itens frágeis, mobiliário de valor, acessos).</p>
           </div>
           <div class="mini">
             <h3 id="h3">3) Execução premium</h3>
@@ -361,14 +396,17 @@
       </div>
     </section>
 
-    <!-- ✅ CONTACTO premium -->
     <section class="section" id="contacto">
       <div class="card">
         <h2 id="contactTitle">Contacto</h2>
 
         <p class="lead" id="contactLead">
-          Para solicitar um <b>ORÇAMENTO PERSONALIZADO</b>, entre em contacto connosco.
-          A fim de garantir um atendimento eficiente e adequado ao seu serviço, pedimos que informe:
+          Atendemos principalmente <b>Cascais</b>, <b>Estoril</b> e <b>Lisboa</b>, com cobertura também para <b>Lapa</b>, <b>Restelo</b> e <b>Campo de Ourique</b>.
+          Portugal e Europa sob consulta.
+        </p>
+
+        <p class="lead" id="contactAsk" style="margin-top:12px;">
+          Para solicitar um <b>ORÇAMENTO PERSONALIZADO</b>, informe por favor:
         </p>
 
         <ul id="contactList" style="margin:14px 0 0; color:var(--muted); line-height:1.8;">
@@ -388,7 +426,7 @@
         </div>
 
         <div class="footer">
-          © <span id="year"></span> <span id="footerName">Império Move</span> — <span id="footerTag">Mudanças de Alto Padrão</span>
+          © <span id="year"></span> Império Move — Mudanças de Alto Padrão
         </div>
       </div>
     </section>
@@ -400,10 +438,8 @@
   </a>
 
   <script>
-    // ====== CONFIG ======
-    const WHATSAPP_NUMBER = "351934638049"; // só números (351 + número)
+    const WHATSAPP_NUMBER = "351934638049";
 
-    // Mensagens premium (PT/EN)
     const MSG = {
       PT: {
         quote:
@@ -416,8 +452,7 @@
           "Retornaremos o mais breve possível.",
         chat:
           "Olá, obrigado pelo contacto com a Império Move.\n\n" +
-          "Gostaria de informações sobre o serviço premium de mudanças/transportes. " +
-          "Por favor, indique origem, destino e data."
+          "Gostaria de informações sobre mudanças premium. Por favor, indique origem, destino e data."
       },
       EN: {
         quote:
@@ -430,21 +465,21 @@
           "We will get back to you shortly.",
         chat:
           "Hello, thank you for contacting Império Move.\n\n" +
-          "I would like information about your premium moving/transport service. " +
-          "Please share from/to and preferred date."
+          "I would like information about premium moving. Please share from/to and preferred date."
       }
     };
 
-    // Textos do site (PT/EN) - premium, pronto
     const TEXT = {
       PT: {
-        brandTag:"Mudanças de Alto Padrão • Portugal e Europa",
+        brandTag:"Lisboa • Cascais • Estoril • Mudanças de Alto Padrão",
         btnContactTop:"Contacto",
         btnTopCTA:"Pedir orçamento", // ✅ único
 
         heroBadge:"🔱 Serviço premium • 📦 Embalamento especializado • 🌍 Relocation sob consulta",
         heroTitle:"Mudanças de alto padrão com cuidado, discrição e pontualidade.",
-        heroText:"A <b>Império Move</b> oferece um serviço premium de mudanças e transporte para clientes exigentes. Atendemos <b>Lisboa</b>, <b>Cascais</b> e <b>todo Portugal</b>, com possibilidade de <b>relocation nacional e internacional</b>, mediante planeamento personalizado.",
+        heroText:"Atendemos clientes exigentes em Lisboa e nas zonas mais valorizadas, com planeamento personalizado e execução cuidadosa do início ao fim.",
+
+        chips:["Cascais","Estoril","Lapa","Restelo","Campo de Ourique","Portugal & Europa (sob consulta)"],
 
         btnHeroWhats:"WhatsApp",
         btnServices:"Soluções premium",
@@ -461,8 +496,8 @@
         rightTitle:"Planeamento, proteção e tranquilidade.",
         rightText:"Cada serviço é tratado como um projeto. Priorizamos discrição, cuidado com os bens e cumprimento rigoroso de horários.",
 
-        covTitle:"📍 Cobertura",
-        covText:"Lisboa • Cascais • Portugal • Europa (sob consulta)",
+        covTitle:"📍 Cobertura premium",
+        covText:"<b>Cascais • Estoril</b> • Lisboa • Lapa • Restelo • Campo de Ourique",
         fastTitle:"🕰️ Resposta eficiente",
         fastText:"WhatsApp direto para alinhar detalhes e agendar com segurança.",
 
@@ -474,28 +509,30 @@
         btnSideContact:"Contacto",
 
         howTitle:"Como funciona",
-        h1:"1) Contacto inicial", h1t:"Envie informações básicas: origem, destino, data e tipo de imóvel.",
-        h2:"2) Planeamento", h2t:"Avaliamos o volume e necessidades específicas (itens frágeis, mobiliário de valor, acessos).",
+        h1:"1) Contacto inicial", h1t:"Envie origem, destino, data e tipo de imóvel.",
+        h2:"2) Planeamento", h2t:"Avaliamos volume e necessidades específicas (itens frágeis, mobiliário de valor, acessos).",
         h3:"3) Execução premium", h3t:"Embalamento especializado (se necessário), carregamento cuidadoso e transporte seguro.",
         h4:"4) Conclusão tranquila", h4t:"Entrega no destino com verificação final e confirmação do serviço.",
 
         contactTitle:"Contacto",
-        contactLead:"Para solicitar um <b>ORÇAMENTO PERSONALIZADO</b>, entre em contacto connosco. A fim de garantir um atendimento eficiente e adequado ao seu serviço, pedimos que informe:",
+        contactLead:"Atendemos principalmente <b>Cascais</b>, <b>Estoril</b> e <b>Lisboa</b>, com cobertura também para <b>Lapa</b>, <b>Restelo</b> e <b>Campo de Ourique</b>. Portugal e Europa sob consulta.",
+        contactAsk:"Para solicitar um <b>ORÇAMENTO PERSONALIZADO</b>, informe por favor:",
         contactNote:"Atendimento discreto e profissional.",
         btnContactWhats:"WhatsApp",
         btnTop:"Voltar ao topo",
 
-        waFloatText:"WhatsApp",
-        footerTag:"Mudanças de Alto Padrão"
+        waFloatText:"WhatsApp"
       },
       EN: {
-        brandTag:"Premium Moving • Portugal and Europe",
+        brandTag:"Lisbon • Cascais • Estoril • Premium Moving",
         btnContactTop:"Contact",
         btnTopCTA:"Get a quote",
 
         heroBadge:"🔱 Premium service • 📦 Specialized packing • 🌍 Relocation on request",
         heroTitle:"Premium moving with care, discretion and punctuality.",
-        heroText:"<b>Império Move</b> delivers premium moving and transport for demanding clients. We serve <b>Lisbon</b>, <b>Cascais</b> and all <b>Portugal</b>, with <b>national and international relocation</b> upon request, always with personalized planning.",
+        heroText:"We serve demanding clients in Lisbon’s most valued areas, with personalized planning and careful end-to-end execution.",
+
+        chips:["Cascais","Estoril","Lapa","Restelo","Campo de Ourique","Portugal & Europe (on request)"],
 
         btnHeroWhats:"WhatsApp",
         btnServices:"Premium solutions",
@@ -512,8 +549,8 @@
         rightTitle:"Planning, protection and peace of mind.",
         rightText:"Every service is handled as a project. We prioritize discretion, protection of goods and strict punctuality.",
 
-        covTitle:"📍 Coverage",
-        covText:"Lisbon • Cascais • Portugal • Europe (on request)",
+        covTitle:"📍 Premium coverage",
+        covText:"<b>Cascais • Estoril</b> • Lisbon • Lapa • Restelo • Campo de Ourique",
         fastTitle:"🕰️ Efficient response",
         fastText:"Direct WhatsApp to align details and schedule safely.",
 
@@ -525,19 +562,19 @@
         btnSideContact:"Contact",
 
         howTitle:"How it works",
-        h1:"1) Initial request", h1t:"Send basic details: from/to, date and property type.",
+        h1:"1) Initial request", h1t:"Share basic details: from/to, date and property type.",
         h2:"2) Planning", h2t:"We assess volume and special needs (fragile items, valuable furniture, access).",
         h3:"3) Premium execution", h3t:"Specialized packing (if needed), careful loading and safe transport.",
         h4:"4) Smooth finish", h4t:"Delivery with final check and service confirmation.",
 
         contactTitle:"Contact",
-        contactLead:"To request a <b>PERSONALIZED QUOTE</b>, please contact us. For efficient service, please provide:",
+        contactLead:"We mainly serve <b>Cascais</b>, <b>Estoril</b> and <b>Lisbon</b>, also covering <b>Lapa</b>, <b>Restelo</b> and <b>Campo de Ourique</b>. Portugal and Europe on request.",
+        contactAsk:"To request a <b>PERSONALIZED QUOTE</b>, please provide:",
         contactNote:"Discreet and professional service.",
         btnContactWhats:"WhatsApp",
         btnTop:"Back to top",
 
-        waFloatText:"WhatsApp",
-        footerTag:"Premium Moving"
+        waFloatText:"WhatsApp"
       }
     };
 
@@ -559,7 +596,15 @@
 
       $("heroBadge").textContent = t.heroBadge;
       $("heroTitle").textContent = t.heroTitle;
-      $("heroText").innerHTML = t.heroText;
+      $("heroText").textContent = t.heroText;
+
+      // chips
+      $("chip1").textContent = t.chips[0];
+      $("chip2").textContent = t.chips[1];
+      $("chip3").textContent = t.chips[2];
+      $("chip4").textContent = t.chips[3];
+      $("chip5").textContent = t.chips[4];
+      $("chip6").textContent = t.chips[5];
 
       $("btnHeroWhats").textContent = t.btnHeroWhats;
       $("btnServices").textContent = t.btnServices;
@@ -577,7 +622,7 @@
       $("rightText").textContent = t.rightText;
 
       $("covTitle").textContent = t.covTitle;
-      $("covText").textContent = t.covText;
+      $("covText").innerHTML = t.covText;
       $("fastTitle").textContent = t.fastTitle;
       $("fastText").textContent = t.fastText;
 
@@ -596,18 +641,18 @@
 
       $("contactTitle").textContent = t.contactTitle;
       $("contactLead").innerHTML = t.contactLead;
+      $("contactAsk").innerHTML = t.contactAsk;
       $("contactNote").textContent = t.contactNote;
       $("btnContactWhats").textContent = t.btnContactWhats;
       $("btnTop").textContent = t.btnTop;
 
       $("waFloatText").textContent = t.waFloatText;
-      $("footerTag").textContent = t.footerTag;
 
       // Links premium
       const msgQuote = MSG[lang].quote;
       const msgChat  = MSG[lang].chat;
 
-      $("btnTopCTA").href       = waLink(msgQuote); // único "Pedir orçamento"
+      $("btnTopCTA").href       = waLink(msgQuote);
       $("btnHeroWhats").href    = waLink(msgChat);
       $("btnSideSim").href      = waLink(msgQuote);
       $("btnContactWhats").href = waLink(msgChat);
