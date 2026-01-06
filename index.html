@@ -1,362 +1,655 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-PT">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Império Move • Mudanças, Transportes e Embalamento</title>
-  <meta name="description" content="Império Move: mudanças, transportes, embalamento e viagens nacionais e internacionais. Atendemos Lisboa, Cascais e todo Portugal." />
+  <title>Império Move — Mudanças & Transporte</title>
+  <meta name="description" content="Império Move: mudanças, transportes e embalamento completo em Portugal e Europa. Orçamento rápido pelo WhatsApp." />
 
   <style>
     :root{
-      --bg:#0b1220;
-      --panel: rgba(255,255,255,.04);
-      --panel2: rgba(255,255,255,.06);
-      --txt:#eef3ff;
-      --muted:#aab4cf;
-      --accent:#6ea8fe;
+      --bg1:#060a12;
+      --bg2:#070d18;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.04);
       --border: rgba(255,255,255,.12);
-      --shadow: 0 18px 60px rgba(0,0,0,.35);
+      --txt: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --accent: #e8b44e; /* dourado chique */
+      --accent2:#41d39b; /* verde */
+      --shadow: 0 22px 70px rgba(0,0,0,.45);
       --radius: 22px;
+      --radius2: 16px;
+      --max: 1120px;
     }
-    *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body{
-      color:var(--txt);
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--txt);
       background:
-        radial-gradient(900px 600px at 15% 10%, #1b2a52 0%, var(--bg) 55%),
-        radial-gradient(700px 500px at 85% 30%, #1a3a5a 0%, rgba(0,0,0,0) 60%);
+        radial-gradient(1000px 700px at 12% 10%, rgba(232,180,78,.22), transparent 60%),
+        radial-gradient(900px 650px at 85% 30%, rgba(65,211,155,.16), transparent 60%),
+        linear-gradient(180deg, var(--bg2), var(--bg1) 60%, #050812);
       min-height:100vh;
+      overflow-x:hidden;
     }
     a{color:inherit;text-decoration:none}
-    .wrap{max-width:1120px;margin:0 auto;padding:26px}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+
+    /* Topbar */
     .topbar{
-      position:sticky;top:0;z-index:50;
-      padding:14px 0;
-      backdrop-filter: blur(12px);
-      background: linear-gradient(180deg, rgba(11,18,32,.92), rgba(11,18,32,.45));
-      border-bottom: 1px solid rgba(255,255,255,.08);
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(7,13,24,.92), rgba(7,13,24,.70));
+      border-bottom:1px solid rgba(255,255,255,.10);
     }
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.2px}
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:12px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      font-weight:950; letter-spacing:.2px;
+      min-width: 220px;
+    }
     .brand img{
-      width:40px;height:40px;border-radius:12px;
-      object-fit:contain;background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
+      width:44px; height:44px; object-fit:contain;
+      border-radius:14px;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.14);
+      padding:6px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
     }
-    nav{display:flex;gap:14px;color:var(--muted);font-weight:700;flex-wrap:wrap;align-items:center}
-    nav a:hover{color:var(--txt)}
+    .brand small{
+      display:block;
+      margin-top:2px;
+      font-weight:650;
+      color: var(--muted);
+      letter-spacing:.1px;
+    }
+
+    .nav{
+      display:flex; align-items:center; gap:10px;
+      flex-wrap:wrap; justify-content:flex-end;
+      color: var(--muted);
+      font-weight:750;
+    }
+    .nav a{
+      padding:9px 10px;
+      border-radius: 14px;
+      border:1px solid transparent;
+    }
+    .nav a:hover{
+      color: var(--txt);
+      border-color: rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+    }
+
+    .actions{
+      display:flex; gap:10px; align-items:center; justify-content:flex-end;
+    }
+
     .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:8px;
-      padding:12px 14px;border-radius:14px;font-weight:850;
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:11px 14px;
+      border-radius: 16px;
       border:1px solid var(--border);
       background: var(--panel);
-      transition: transform .12s ease, background .12s ease, filter .12s ease;
+      font-weight:900;
+      transition: transform .12s ease, filter .12s ease, background .12s ease;
       white-space:nowrap;
     }
-    .btn:hover{background:rgba(255,255,255,.07);transform: translateY(-1px)}
-    .primary{background:var(--accent); color:#061022; border:none}
-    .primary:hover{filter:brightness(1.05)}
-    .ghost{background:transparent}
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.08)}
+    .btn.primary{
+      background: linear-gradient(135deg, var(--accent), #f1d08a);
+      color:#08101f;
+      border-color: transparent;
+    }
+    .btn.primary:hover{filter:brightness(1.03)}
+    .btn.ghost{
+      background: transparent;
+      border-color: rgba(255,255,255,.14);
+    }
+
+    /* Language switch */
+    .lang{
+      display:flex; gap:8px; align-items:center;
+      padding:8px 0 12px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-weight:800;
+      font-size:13px;
+      cursor:pointer;
+      user-select:none;
+    }
+    .pill.active{
+      color: var(--txt);
+      border-color: rgba(232,180,78,.40);
+      background: rgba(232,180,78,.10);
+    }
+
+    /* Sections */
+    .section{padding:22px 0}
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+      border:1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:22px;
+      position:relative;
+      overflow:hidden;
+    }
+    .card.soft{
+      background: rgba(255,255,255,.05);
+      box-shadow: none;
+    }
+
     .badge{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:8px 10px;border-radius:999px;border:1px solid var(--border);
-      color:var(--muted); font-size:13px; background: rgba(255,255,255,.03);
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-size:13px;
+      font-weight:800;
+      margin-bottom:12px;
     }
 
     .hero{
-      margin-top:18px;
-      display:grid;gap:16px;
-      grid-template-columns: 1.35fr .65fr;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:14px;
       align-items:start;
+      margin-top:14px;
+      position:relative;
     }
-    .card{
-      background: linear-gradient(180deg, var(--panel2), rgba(255,255,255,.03));
-      border:1px solid var(--border);
-      border-radius: var(--radius);
-      padding:22px;
-      box-shadow: var(--shadow);
-    }
-    h1{font-size:44px;line-height:1.05}
-    p{color:var(--muted);line-height:1.6;margin-top:10px}
-    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
-    .grid{display:grid;gap:14px;grid-template-columns:repeat(3,1fr);margin-top:16px}
-    .mini h3{font-size:16px}
-    .mini p{font-size:14px;margin-top:6px}
 
-    section{margin-top:14px}
-    .section-title{font-size:18px;margin-bottom:8px}
-    .list{display:grid;gap:12px}
-    .item{
-      padding:16px;border-radius:18px;border:1px solid var(--border);
-      background: rgba(0,0,0,.18);
-    }
-    .two-col{display:grid;gap:14px;grid-template-columns:1fr 1fr}
-    .muted{color:var(--muted)}
-
-    label{display:block;margin-top:10px;color:var(--muted);font-size:13px;font-weight:700}
-    input, textarea{
-      width:100%; margin-top:8px; padding:12px 12px; border-radius:14px;
-      border:1px solid var(--border); background:rgba(0,0,0,.18); color:var(--txt);
-      outline:none;
-    }
-    textarea{min-height:120px;resize:vertical}
-    footer{margin-top:22px;color:var(--muted);font-size:13px;padding:8px 0 18px}
-
-    .wa-float{
-      position:fixed; right:18px; bottom:18px;
-      display:flex; align-items:center; gap:10px;
-      padding:12px 14px;
+    /* Decorative glow - behind content */
+    .glow{
+      position:absolute; inset:auto -80px -140px auto;
+      width:520px; height:520px;
       border-radius:999px;
-      background: rgba(26, 255, 128, .14);
-      border: 1px solid rgba(26,255,128,.35);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 18px 60px rgba(0,0,0,.45);
-      z-index: 100;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(65,211,155,.22), transparent 58%),
+        radial-gradient(circle at 70% 70%, rgba(232,180,78,.20), transparent 58%);
+      filter: blur(6px);
+      pointer-events:none;
+      opacity:.95;
+      z-index:0;
+    }
+    .card > *{position:relative; z-index:1}
+
+    h1{
+      margin:0 0 10px;
+      font-size:44px;
+      line-height:1.05;
+      letter-spacing:-.7px;
+    }
+    h2{
+      margin:0 0 10px;
+      font-size:22px;
+      letter-spacing:-.2px;
+    }
+    .lead{
+      margin:0;
+      color: var(--muted);
+      font-size:16px;
+      line-height:1.65;
+    }
+    .cta{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:16px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top:14px;
+    }
+    .mini{
+      border-radius: var(--radius2);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      padding:14px;
+      min-height: 94px;
+    }
+    .mini h3{
+      margin:0 0 6px;
+      font-size:15px;
+      letter-spacing:.1px;
+    }
+    .mini p{
+      margin:0;
+      color: var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top:14px;
+    }
+
+    .list .item{
+      display:flex; align-items:flex-start; gap:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      margin-top:10px;
+      color: var(--muted);
+      line-height:1.5;
+      font-size:14px;
+    }
+    .item b{color: var(--txt)}
+
+    .footer{
+      color: rgba(255,255,255,.55);
+      font-size:12px;
+      text-align:center;
+      padding:22px 0 34px;
+    }
+
+    /* WhatsApp Floating */
+    .wa-float{
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 80;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius: 999px;
+      background: #25D366;
+      color:#071018;
+      font-weight:950;
+      border: none;
+      box-shadow: 0 16px 44px rgba(0,0,0,.42);
     }
     .wa-dot{
-      width:12px;height:12px;border-radius:99px;
-      background: rgba(26,255,128,.85);
-      box-shadow: 0 0 0 6px rgba(26,255,128,.12);
+      width:10px;height:10px;border-radius:99px;background:#071018; opacity:.25;
     }
-    .wa-float strong{font-size:13px}
-    .wa-float span{font-size:12px;color:var(--muted)}
-    .wa-float:hover{transform: translateY(-1px)}
-    .spacer{height:6px}
 
-    @media (max-width: 950px){
-      .hero{grid-template-columns:1fr}
+    /* MOBILE */
+    @media (max-width: 980px){
       .grid{grid-template-columns:1fr}
       .two-col{grid-template-columns:1fr}
+    }
+    @media (max-width: 820px){
+      .nav{display:none}
+      .topbar-inner{gap:10px}
+      .brand{min-width:auto}
+    }
+    @media (max-width: 768px){
+      .wrap{padding:0 16px}
+      .hero{grid-template-columns:1fr}
       h1{font-size:34px}
-      nav .hide-mobile{display:none}
+      .glow{display:none} /* some mobile phones were getting overlaps */
+      .wa-float{right:12px; bottom:12px}
+      .btn{padding:11px 13px}
     }
   </style>
 </head>
 
 <body>
 
-<header class="topbar">
-  <div class="wrap brand">
-    <img src="logo.png" alt="Império Move">
-    <span>IMPÉRIO MOVE</span>
-  </div>
-</header>
-  <a id="waFloat" class="wa-float" href="#" target="_blank" rel="noopener">
-    <div class="wa-dot"></div>
-    <div>
-      <strong>Pedir orçamento</strong>
-      <div class="spacer"></div>
-      <span>WhatsApp • resposta rápida</span>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="topbar-inner">
+        <div class="brand">
+          <img src="logo.png" alt="Império Move">
+          <div>
+            <span id="brandName">IMPÉRIO MOVE</span>
+            <small id="brandTag">Mudanças & Transporte • Portugal e Europa</small>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn ghost" href="#contacto" id="navContact">Contacto</a>
+          <a class="btn primary" href="#" id="btnQuoteTop">Pedir orçamento</a>
+        </div>
+      </div>
+
+      <div class="lang" aria-label="Language switch">
+        <span class="pill active" id="langPT">🇵🇹 PT</span>
+        <span class="pill" id="langEN">🇬🇧 EN</span>
+      </div>
     </div>
-  <div class="wrap">
-    <main class="hero">
-      <div class="card">
-        <span class="badge">🚚 Mudanças • 📦 Embalamento • 🗺️ Viagens nacionais e internacionais</span>
-        <h1 style="margin-top:10px;">Mudanças e transportes com segurança, cuidado e pontualidade.</h1>
-        <p>
-          A <strong>Império Move</strong> atende <strong>Lisboa</strong>, <strong>Cascais</strong> e <strong>todo Portugal</strong>,
-          com serviços completos de embalamento, transporte e apoio na mudança.
-          Também realizamos <strong>viagens nacionais e internacionais</strong> (sob consulta).
+  </header>
+
+  <main class="wrap section" id="inicio">
+    <div class="hero">
+      <section class="card">
+        <div class="glow"></div>
+
+        <div class="badge" id="heroBadge">🚚 Mudanças • 📦 Embalamento • 🌍 Viagens nacionais e internacionais</div>
+
+        <h1 id="heroTitle">Mudanças e transportes com segurança, cuidado e pontualidade.</h1>
+
+        <p class="lead" id="heroText">
+          A <b>Império Move</b> atende <b>Lisboa</b>, <b>Cascais</b> e <b>todo Portugal</b>, com serviços completos de
+          embalamento, transporte e apoio na mudança. Também realizamos <b>viagens nacionais e internacionais</b>
+          (sob consulta).
         </p>
 
         <div class="cta">
-          <a class="btn primary" id="whatsBtn" href="#" target="_blank" rel="noopener">Pedir orçamento no WhatsApp</a>
-          <a class="btn" id="callBtn" href="#">Ligar agora</a>
-          <a class="btn ghost" href="#orcamento">Simular orçamento</a>
+          <a class="btn primary" href="#" id="btnQuoteHero">Pedir orçamento no WhatsApp</a>
+          <a class="btn" href="#servicos" id="btnSeeServices">Ver serviços</a>
+          <a class="btn" href="#como" id="btnHow">Como funciona</a>
         </div>
 
         <div class="grid" id="servicos">
-          <div class="card mini">
-            <h3>📦 Embalamento profissional</h3>
-            <p>Proteção de móveis e objetos frágeis com atenção aos detalhes.</p>
+          <div class="mini">
+            <h3 id="s1Title">📦 Embalamento profissional</h3>
+            <p id="s1Text">Proteção de móveis e objetos frágeis com atenção aos detalhes.</p>
           </div>
-          <div class="card mini">
-            <h3>🚚 Mudanças & transportes</h3>
-            <p>Mudanças residenciais e comerciais — local e nacional.</p>
+          <div class="mini">
+            <h3 id="s2Title">🚚 Mudanças & transportes</h3>
+            <p id="s2Text">Residencial e comercial — local, nacional e sob consulta internacional.</p>
           </div>
-          <div class="card mini">
-            <h3>🗺️ Viagens nacionais & internacionais</h3>
-            <p>Transporte planeado para outras cidades e para o estrangeiro.</p>
+          <div class="mini">
+            <h3 id="s3Title">🌍 Viagens nacionais & internacionais</h3>
+            <p id="s3Text">Planeamento e logística para outras cidades e para o estrangeiro.</p>
           </div>
         </div>
-      </div>
+      </section>
 
-      <aside class="card" id="cobertura">
-        <div class="section-title">Cobertura</div>
-        <div class="list">
-          <div class="item"><strong>📍 Local:</strong> Lisboa e Cascais</div>
-          <div class="item"><strong>🇵🇹 Nacional:</strong> Todo Portugal</div>
-          <div class="item"><strong>🌍 Internacional:</strong> Viagens e mudanças internacionais (sob consulta)</div>
-        </div>
-
-        <div class="section-title" style="margin-top:14px;">Para quem é</div>
-        <p>
-          Casas, apartamentos, escritórios, lojas, entregas e transportes agendados —
-          com opções de embalamento e apoio no carregamento.
+      <aside class="card soft">
+        <div class="badge" id="rightBadge">✨ Serviço profissional</div>
+        <h2 id="rightTitle">Orçamento rápido. Equipa cuidadosa. Pontualidade.</h2>
+        <p class="lead" id="rightText" style="margin:0 0 14px;">
+          Clique e envie os detalhes: origem, destino, data e volume. Respondemos o mais rápido possível.
         </p>
+
+        <div class="two-col">
+          <div class="mini">
+            <h3 id="covTitle">📍 Cobertura</h3>
+            <p id="covText">Lisboa • Cascais • Todo Portugal • Europa (sob consulta)</p>
+          </div>
+          <div class="mini">
+            <h3 id="fastTitle">⏱️ Resposta rápida</h3>
+            <p id="fastText">WhatsApp direto para agendar e tirar dúvidas.</p>
+          </div>
+        </div>
+
+        <div class="list" style="margin-top:14px;">
+          <div class="item" id="p1"><b>✅ Cuidado:</b> proteção e manuseio seguro</div>
+          <div class="item" id="p2"><b>✅ Confiança:</b> serviço profissional</div>
+          <div class="item" id="p3"><b>✅ Pontualidade:</b> entrega no prazo</div>
+        </div>
+
+        <div class="cta" style="margin-top:14px;">
+          <a class="btn primary" href="#" id="btnQuoteSide">Pedir orçamento agora</a>
+          <a class="btn" href="#contacto" id="btnContactSide">Contacto</a>
+        </div>
       </aside>
-    </main>
+    </div>
 
-    <section class="card" id="como">
-      <div class="section-title">Como funciona</div>
-      <div class="grid">
-        <div class="item">
-          <strong>1) Pedido</strong>
-          <p class="muted">Envie origem, destino, data e o que precisa transportar.</p>
-        </div>
-        <div class="item">
-          <strong>2) Plano</strong>
-          <p class="muted">Confirmamos detalhes (andares, elevador, volume, embalamento).</p>
-        </div>
-        <div class="item">
-          <strong>3) Execução</strong>
-          <p class="muted">Embalamos (se necessário), carregamos e entregamos com segurança.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="card" id="porque">
-      <div class="section-title">Porquê escolher a Império Move</div>
-      <div class="two-col">
-        <div class="list">
-          <div class="item">✅ Cuidado com os seus bens (frágeis, móveis e eletrodomésticos)</div>
-          <div class="item">✅ Pontualidade e comunicação simples</div>
-          <div class="item">✅ Serviço completo: embalamento + transporte + apoio</div>
-        </div>
-        <div class="list">
-          <div class="item">✅ Atendimento em Lisboa, Cascais e todo Portugal</div>
-          <div class="item">✅ Viagens nacionais e internacionais (sob consulta)</div>
-          <div class="item">✅ Orçamento rápido por WhatsApp</div>
+    <section class="section" id="como">
+      <div class="card">
+        <h2 id="howTitle">Como funciona</h2>
+        <div class="two-col">
+          <div class="mini">
+            <h3 id="h1">1) Pedido</h3>
+            <p id="h1t">Envie origem, destino, data e o que precisa transportar.</p>
+          </div>
+          <div class="mini">
+            <h3 id="h2">2) Plano</h3>
+            <p id="h2t">Confirmamos detalhes (andares, elevador, volume, embalamento).</p>
+          </div>
+          <div class="mini">
+            <h3 id="h3">3) Execução</h3>
+            <p id="h3t">Embalamos (se necessário), carregamos e entregamos com segurança.</p>
+          </div>
+          <div class="mini">
+            <h3 id="h4">4) Finalização</h3>
+            <p id="h4t">Organização básica no destino e confirmação do serviço.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="card" id="orcamento">
-      <div class="section-title">Simular orçamento (rápido)</div>
-      <p>Preencha e clique em “Gerar mensagem”. Vai abrir o WhatsApp com a mensagem pronta.</p>
+    <section class="section" id="contacto">
+      <div class="card">
+        <h2 id="contactTitle">Contacto</h2>
 
-      <div class="two-col" style="margin-top:12px;">
-        <div>
-          <label>Nome</label>
-          <input id="nome" placeholder="Seu nome" />
-          <label>Origem</label>
-          <input id="origem" placeholder="Ex: Lisboa" />
-          <label>Destino</label>
-          <input id="destino" placeholder="Ex: Porto / Espanha / França…" />
+        <div class="two-col">
+          <div class="mini">
+            <h3 id="zoneTitle">📍 Zona</h3>
+            <p id="zoneText">Lisboa, Cascais e todo Portugal</p>
+          </div>
+          <div class="mini">
+            <h3 id="waTitle">📲 WhatsApp</h3>
+            <p id="waText"><b>Resposta rápida</b> — clique para pedir orçamento.</p>
+          </div>
         </div>
-        <div>
-          <label>Data</label>
-          <input id="data" placeholder="Ex: 10/01/2026" />
-          <label>Serviço</label>
-          <input id="servico" placeholder="Ex: mudança + embalamento / transporte / viagem internacional" />
-          <label>Detalhes</label>
-          <textarea id="detalhes" placeholder="Ex: 1 sofá, 1 cama, 15 caixas, 3º andar (com/sem elevador)…"></textarea>
+
+        <div class="cta" style="margin-top:14px;">
+          <a class="btn primary" href="#" id="btnQuoteContact">Pedir orçamento no WhatsApp</a>
+          <a class="btn" href="#inicio" id="btnTop">Voltar ao topo</a>
         </div>
-      </div>
 
-      <div class="cta" style="margin-top:12px;">
-        <button class="btn primary" style="cursor:pointer;" id="gerar">Gerar mensagem</button>
-        <button class="btn" style="cursor:pointer;" id="copiar">Copiar mensagem</button>
-      </div>
-
-      <div class="item" style="margin-top:12px;">
-        <div class="muted" style="font-weight:800;">Pré-visualização da mensagem</div>
-        <pre id="preview" style="white-space:pre-wrap;margin-top:10px;color:var(--txt);font-family:inherit;"></pre>
+        <div class="footer">
+          © <span id="year"></span> <span id="footerName">Império Move</span> — <span id="footerTag">Mudanças & Transporte</span>
+        </div>
       </div>
     </section>
+  </main>
 
-    <section class="card" id="contato">
-      <div class="section-title">Contacto</div>
-      <div class="list" style="margin-top:12px;">
-        <div class="item">📍 Zona: Lisboa, Cascais e todo Portugal</div>
-        <div class="item">🌍 Internacional: viagens e mudanças internacionais (sob consulta)</div>
-        <div class="item">📞 Telefone / WhatsApp: <strong id="phoneText">+351 934 638 049</strong></div>
-      </div>
-
-      <div class="cta" style="margin-top:12px;">
-        <a class="btn primary" id="whatsBtn2" href="#" target="_blank" rel="noopener">Falar no WhatsApp</a>
-        <a class="btn" id="callBtn2" href="#">Ligar</a>
-      </div>
-    </section>
-
-    <footer>© <span id="year"></span> Império Move</footer>
-  </div>
+  <a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener">
+    <span class="wa-dot"></span>
+    <span id="waFloatText">Pedir orçamento</span>
+  </a>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    const WHATSAPP_NUMERO = "351934638049";
-    const TELEFONE_TEXTO = "+351 934 638 049";
-    const TELEFONE_TEL = "+351934638049";
-
-    const whatsBase = `https://wa.me/${WHATSAPP_NUMERO}`;
-    const defaultMsg = "Olá! Gostaria de pedir orçamento com a Império Move.";
-
-    function setLink(id, href){
-      const el = document.getElementById(id);
-      if (el) el.href = href;
-    }
-
-    setLink("whatsBtn", `${whatsBase}?text=${encodeURIComponent(defaultMsg)}`);
-    setLink("whatsBtn2", `${whatsBase}?text=${encodeURIComponent(defaultMsg)}`);
-    setLink("waFloat", `${whatsBase}?text=${encodeURIComponent(defaultMsg)}`);
-
-    setLink("callBtn", `tel:${TELEFONE_TEL}`);
-    setLink("callBtn2", `tel:${TELEFONE_TEL}`);
-    document.getElementById("phoneText").textContent = TELEFONE_TEXTO;
-
-    const preview = document.getElementById("preview");
-
-    function montarMensagem(){
-      const nome = document.getElementById("nome").value.trim();
-      const origem = document.getElementById("origem").value.trim();
-      const destino = document.getElementById("destino").value.trim();
-      const data = document.getElementById("data").value.trim();
-      const servico = document.getElementById("servico").value.trim();
-      const detalhes = document.getElementById("detalhes").value.trim();
-
-      const linhas = [
-        "Olá! Gostaria de pedir orçamento com a Império Move.",
-        nome ? `Nome: ${nome}` : null,
-        origem ? `Origem: ${origem}` : null,
-        destino ? `Destino: ${destino}` : null,
-        data ? `Data: ${data}` : null,
-        servico ? `Serviço: ${servico}` : null,
-        detalhes ? `Detalhes: ${detalhes}` : null
-      ].filter(Boolean);
-
-      return linhas.join("\\n");
-    }
-
-    function atualizarPreview(){
-      const msg = montarMensagem();
-      preview.textContent = msg || "Preencha pelo menos Origem e Destino para gerar a mensagem.";
-    }
-
-    ["nome","origem","destino","data","servico","detalhes"].forEach(id=>{
-      const el = document.getElementById(id);
-      el.addEventListener("input", atualizarPreview);
-    });
-    atualizarPreview();
-
-    document.getElementById("gerar").addEventListener("click", () => {
-      const msg = montarMensagem();
-      atualizarPreview();
-      if (!msg || msg.includes("Preencha pelo menos")) return;
-      window.open(`${whatsBase}?text=${encodeURIComponent(msg)}`, "_blank");
-    });
-
-    document.getElementById("copiar").addEventListener("click", async () => {
-      const msg = montarMensagem();
-      atualizarPreview();
-      if (!msg || msg.includes("Preencha pelo menos")) return;
-      try{
-        await navigator.clipboard.writeText(msg);
-        alert("Mensagem copiada!");
-      }catch(e){
-        alert("Não consegui copiar automaticamente. Selecione a mensagem e copie.");
+    // =====================
+    // CONFIG (edit if needed)
+    // =====================
+    const WHATSAPP_NUMBER = "351934638049"; // <- confirma teu número (351 + número)
+    const LANGS = {
+      PT: {
+        brandTag: "Mudanças & Transporte • Portugal e Europa",
+        navContact: "Contacto",
+        btnQuote: "Pedir orçamento",
+        heroBadge: "🚚 Mudanças • 📦 Embalamento • 🌍 Viagens nacionais e internacionais",
+        heroTitle: "Mudanças e transportes com segurança, cuidado e pontualidade.",
+        heroText: "A <b>Império Move</b> atende <b>Lisboa</b>, <b>Cascais</b> e <b>todo Portugal</b>, com serviços completos de embalamento, transporte e apoio na mudança. Também realizamos <b>viagens nacionais e internacionais</b> (sob consulta).",
+        btnSeeServices: "Ver serviços",
+        btnHow: "Como funciona",
+        s1Title: "📦 Embalamento profissional",
+        s1Text: "Proteção de móveis e objetos frágeis com atenção aos detalhes.",
+        s2Title: "🚚 Mudanças & transportes",
+        s2Text: "Residencial e comercial — local, nacional e sob consulta internacional.",
+        s3Title: "🌍 Viagens nacionais & internacionais",
+        s3Text: "Planeamento e logística para outras cidades e para o estrangeiro.",
+        rightBadge: "✨ Serviço profissional",
+        rightTitle: "Orçamento rápido. Equipa cuidadosa. Pontualidade.",
+        rightText: "Clique e envie os detalhes: origem, destino, data e volume. Respondemos o mais rápido possível.",
+        covTitle: "📍 Cobertura",
+        covText: "Lisboa • Cascais • Todo Portugal • Europa (sob consulta)",
+        fastTitle: "⏱️ Resposta rápida",
+        fastText: "WhatsApp direto para agendar e tirar dúvidas.",
+        p1: "<b>✅ Cuidado:</b> proteção e manuseio seguro",
+        p2: "<b>✅ Confiança:</b> serviço profissional",
+        p3: "<b>✅ Pontualidade:</b> entrega no prazo",
+        btnContactSide: "Contacto",
+        howTitle: "Como funciona",
+        h1: "1) Pedido",
+        h1t: "Envie origem, destino, data e o que precisa transportar.",
+        h2: "2) Plano",
+        h2t: "Confirmamos detalhes (andares, elevador, volume, embalamento).",
+        h3: "3) Execução",
+        h3t: "Embalamos (se necessário), carregamos e entregamos com segurança.",
+        h4: "4) Finalização",
+        h4t: "Organização básica no destino e confirmação do serviço.",
+        contactTitle: "Contacto",
+        zoneTitle: "📍 Zona",
+        zoneText: "Lisboa, Cascais e todo Portugal",
+        waTitle: "📲 WhatsApp",
+        waText: "<b>Resposta rápida</b> — clique para pedir orçamento.",
+        btnTop: "Voltar ao topo",
+        waFloatText: "Pedir orçamento",
+        footerTag: "Mudanças & Transporte",
+        waMessage: "Olá! Quero um orçamento com a Império Move.\nOrigem: ____\nDestino: ____\nData: ____\nDetalhes/Volume: ____"
+      },
+      EN: {
+        brandTag: "Moving & Transport • Portugal and Europe",
+        navContact: "Contact",
+        btnQuote: "Get a quote",
+        heroBadge: "🚚 Moving • 📦 Packing • 🌍 National & international trips",
+        heroTitle: "Moving and transport with safety, care and punctuality.",
+        heroText: "<b>Império Move</b> serves <b>Lisbon</b>, <b>Cascais</b> and all <b>Portugal</b>, with full packing, transport and moving support. We also do <b>national and international trips</b> (upon request).",
+        btnSeeServices: "Services",
+        btnHow: "How it works",
+        s1Title: "📦 Professional packing",
+        s1Text: "Protection for furniture and fragile items with great care.",
+        s2Title: "🚚 Moving & transport",
+        s2Text: "Residential and commercial — local, national and international on request.",
+        s3Title: "🌍 National & international trips",
+        s3Text: "Planning and logistics for other cities and abroad.",
+        rightBadge: "✨ Professional service",
+        rightTitle: "Fast quote. Careful team. On-time delivery.",
+        rightText: "Click and send details: from, to, date and volume. We reply as fast as possible.",
+        covTitle: "📍 Coverage",
+        covText: "Lisbon • Cascais • Portugal • Europe (on request)",
+        fastTitle: "⏱️ Fast response",
+        fastText: "Direct WhatsApp for scheduling and questions.",
+        p1: "<b>✅ Care:</b> safe handling and protection",
+        p2: "<b>✅ Trust:</b> professional service",
+        p3: "<b>✅ On-time:</b> delivery as scheduled",
+        btnContactSide: "Contact",
+        howTitle: "How it works",
+        h1: "1) Request",
+        h1t: "Send pickup, destination, date and what you need to move.",
+        h2: "2) Plan",
+        h2t: "We confirm details (floors, elevator, volume, packing).",
+        h3: "3) Execution",
+        h3t: "We pack (if needed), load and deliver safely.",
+        h4: "4) Finish",
+        h4t: "Basic organization at destination and service confirmation.",
+        contactTitle: "Contact",
+        zoneTitle: "📍 Area",
+        zoneText: "Lisbon, Cascais and all Portugal",
+        waTitle: "📲 WhatsApp",
+        waText: "<b>Fast reply</b> — click to get a quote.",
+        btnTop: "Back to top",
+        waFloatText: "Get a quote",
+        footerTag: "Moving & Transport",
+        waMessage: "Hello! I’d like a quote with Império Move.\nFrom: ____\nTo: ____\nDate: ____\nDetails/Volume: ____"
       }
-    });
+    };
+
+    // =====================
+    // Helpers
+    // =====================
+    const $ = (id) => document.getElementById(id);
+
+    let currentLang = "PT";
+
+    function buildWaLink(message){
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    }
+
+    function applyLang(langKey){
+      currentLang = langKey;
+      const t = LANGS[langKey];
+
+      // Pills
+      $("langPT").classList.toggle("active", langKey === "PT");
+      $("langEN").classList.toggle("active", langKey === "EN");
+
+      // Top texts
+      $("brandTag").textContent = t.brandTag;
+      $("navContact").textContent = t.navContact;
+      $("btnQuoteTop").textContent = t.btnQuote;
+
+      // Hero
+      $("heroBadge").textContent = t.heroBadge;
+      $("heroTitle").textContent = t.heroTitle;
+      $("heroText").innerHTML = t.heroText;
+
+      $("btnSeeServices").textContent = t.btnSeeServices;
+      $("btnHow").textContent = t.btnHow;
+
+      // Services
+      $("s1Title").textContent = t.s1Title;
+      $("s1Text").textContent = t.s1Text;
+      $("s2Title").textContent = t.s2Title;
+      $("s2Text").textContent = t.s2Text;
+      $("s3Title").textContent = t.s3Title;
+      $("s3Text").textContent = t.s3Text;
+
+      // Right card
+      $("rightBadge").textContent = t.rightBadge;
+      $("rightTitle").textContent = t.rightTitle;
+      $("rightText").textContent = t.rightText;
+
+      $("covTitle").textContent = t.covTitle;
+      $("covText").textContent = t.covText;
+      $("fastTitle").textContent = t.fastTitle;
+      $("fastText").textContent = t.fastText;
+
+      $("p1").innerHTML = t.p1;
+      $("p2").innerHTML = t.p2;
+      $("p3").innerHTML = t.p3;
+
+      $("btnContactSide").textContent = t.btnContactSide;
+
+      // How
+      $("howTitle").textContent = t.howTitle;
+      $("h1").textContent = t.h1;
+      $("h1t").textContent = t.h1t;
+      $("h2").textContent = t.h2;
+      $("h2t").textContent = t.h2t;
+      $("h3").textContent = t.h3;
+      $("h3t").textContent = t.h3t;
+      $("h4").textContent = t.h4;
+      $("h4t").textContent = t.h4t;
+
+      // Contact
+      $("contactTitle").textContent = t.contactTitle;
+      $("zoneTitle").textContent = t.zoneTitle;
+      $("zoneText").textContent = t.zoneText;
+      $("waTitle").textContent = t.waTitle;
+      $("waText").innerHTML = t.waText;
+      $("btnTop").textContent = t.btnTop;
+
+      // Footer + WA float
+      $("footerTag").textContent = t.footerTag;
+      $("waFloatText").textContent = t.waFloatText;
+
+      // WhatsApp links
+      const waLink = buildWaLink(t.waMessage);
+      ["waFloat","btnQuoteTop","btnQuoteHero","btnQuoteSide","btnQuoteContact"].forEach(id=>{
+        const el = $(id);
+        if(el) el.setAttribute("href", waLink);
+      });
+    }
+
+    // =====================
+    // Init
+    // =====================
+    $("year").textContent = new Date().getFullYear();
+
+    $("langPT").addEventListener("click", ()=> applyLang("PT"));
+    $("langEN").addEventListener("click", ()=> applyLang("EN"));
+
+    // Default language
+    applyLang("PT");
   </script>
 </body>
 </html>
-<img src="logo.png" alt="Império Move" style="max-width:200px;">
