@@ -9,14 +9,14 @@
   <style>
     :root{
       --bg1:#060a12;
-      --bg2:#070d18;
+      --bg2:#071023;
       --panel: rgba(255,255,255,.06);
       --panel2: rgba(255,255,255,.04);
       --border: rgba(255,255,255,.12);
       --txt: rgba(255,255,255,.92);
       --muted: rgba(255,255,255,.68);
-      --accent: #e8b44e; /* dourado chique */
-      --accent2:#41d39b; /* verde */
+      --accent: #e8b44e;  /* dourado */
+      --accent2:#41d39b;  /* verde */
       --shadow: 0 22px 70px rgba(0,0,0,.45);
       --radius: 22px;
       --radius2: 16px;
@@ -43,7 +43,7 @@
     .topbar{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(14px);
-      background: linear-gradient(180deg, rgba(7,13,24,.92), rgba(7,13,24,.70));
+      background: linear-gradient(180deg, rgba(7,16,35,.92), rgba(7,16,35,.70));
       border-bottom:1px solid rgba(255,255,255,.10);
     }
     .topbar-inner{
@@ -64,34 +64,15 @@
       box-shadow: 0 10px 30px rgba(0,0,0,.35);
     }
     .brand small{
-      display:block;
-      margin-top:2px;
+      display:block; margin-top:2px;
       font-weight:650;
       color: var(--muted);
       letter-spacing:.1px;
     }
 
-    .nav{
-      display:flex; align-items:center; gap:10px;
-      flex-wrap:wrap; justify-content:flex-end;
-      color: var(--muted);
-      font-weight:750;
-    }
-    .nav a{
-      padding:9px 10px;
-      border-radius: 14px;
-      border:1px solid transparent;
-    }
-    .nav a:hover{
-      color: var(--txt);
-      border-color: rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-    }
-
     .actions{
       display:flex; gap:10px; align-items:center; justify-content:flex-end;
     }
-
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       gap:10px;
@@ -149,10 +130,7 @@
       position:relative;
       overflow:hidden;
     }
-    .card.soft{
-      background: rgba(255,255,255,.05);
-      box-shadow: none;
-    }
+    .card.soft{background: rgba(255,255,255,.05); box-shadow:none;}
 
     .badge{
       display:inline-flex; align-items:center; gap:8px;
@@ -173,8 +151,6 @@
       margin-top:14px;
       position:relative;
     }
-
-    /* Decorative glow - behind content */
     .glow{
       position:absolute; inset:auto -80px -140px auto;
       width:520px; height:520px;
@@ -189,27 +165,10 @@
     }
     .card > *{position:relative; z-index:1}
 
-    h1{
-      margin:0 0 10px;
-      font-size:44px;
-      line-height:1.05;
-      letter-spacing:-.7px;
-    }
-    h2{
-      margin:0 0 10px;
-      font-size:22px;
-      letter-spacing:-.2px;
-    }
-    .lead{
-      margin:0;
-      color: var(--muted);
-      font-size:16px;
-      line-height:1.65;
-    }
-    .cta{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin-top:16px;
-    }
+    h1{margin:0 0 10px; font-size:44px; line-height:1.05; letter-spacing:-.7px;}
+    h2{margin:0 0 10px; font-size:22px; letter-spacing:-.2px;}
+    .lead{margin:0; color: var(--muted); font-size:16px; line-height:1.65;}
+    .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;}
 
     .grid{
       display:grid;
@@ -224,17 +183,8 @@
       padding:14px;
       min-height: 94px;
     }
-    .mini h3{
-      margin:0 0 6px;
-      font-size:15px;
-      letter-spacing:.1px;
-    }
-    .mini p{
-      margin:0;
-      color: var(--muted);
-      font-size:13px;
-      line-height:1.5;
-    }
+    .mini h3{margin:0 0 6px; font-size:15px; letter-spacing:.1px;}
+    .mini p{margin:0; color: var(--muted); font-size:13px; line-height:1.5;}
 
     .two-col{
       display:grid;
@@ -242,7 +192,6 @@
       gap:12px;
       margin-top:14px;
     }
-
     .list .item{
       display:flex; align-items:flex-start; gap:10px;
       padding:10px 12px;
@@ -280,9 +229,7 @@
       border: none;
       box-shadow: 0 16px 44px rgba(0,0,0,.42);
     }
-    .wa-dot{
-      width:10px;height:10px;border-radius:99px;background:#071018; opacity:.25;
-    }
+    .wa-dot{width:10px;height:10px;border-radius:99px;background:#071018; opacity:.25;}
 
     /* MOBILE */
     @media (max-width: 980px){
@@ -290,15 +237,13 @@
       .two-col{grid-template-columns:1fr}
     }
     @media (max-width: 820px){
-      .nav{display:none}
-      .topbar-inner{gap:10px}
       .brand{min-width:auto}
     }
     @media (max-width: 768px){
       .wrap{padding:0 16px}
       .hero{grid-template-columns:1fr}
       h1{font-size:34px}
-      .glow{display:none} /* some mobile phones were getting overlaps */
+      .glow{display:none}
       .wa-float{right:12px; bottom:12px}
       .btn{padding:11px 13px}
     }
@@ -319,8 +264,8 @@
         </div>
 
         <div class="actions">
-          <a class="btn ghost" href="#contacto" id="navContact">Contacto</a>
-          <a class="btn primary" href="#" id="btnQuoteTop">Pedir orçamento</a>
+          <a class="btn ghost" href="#contacto" id="btnContactTop">Contacto</a>
+          <a class="btn primary" href="#" id="btnTopCTA">Orçamento grátis</a>
         </div>
       </div>
 
@@ -347,8 +292,8 @@
         </p>
 
         <div class="cta">
-          <a class="btn primary" href="#" id="btnQuoteHero">Pedir orçamento no WhatsApp</a>
-          <a class="btn" href="#servicos" id="btnSeeServices">Ver serviços</a>
+          <a class="btn primary" href="#" id="btnHeroWhats">Falar no WhatsApp</a>
+          <a class="btn" href="#servicos" id="btnServices">Ver serviços</a>
           <a class="btn" href="#como" id="btnHow">Como funciona</a>
         </div>
 
@@ -393,8 +338,8 @@
         </div>
 
         <div class="cta" style="margin-top:14px;">
-          <a class="btn primary" href="#" id="btnQuoteSide">Pedir orçamento agora</a>
-          <a class="btn" href="#contacto" id="btnContactSide">Contacto</a>
+          <a class="btn primary" href="#" id="btnSideSim">Simular valor</a>
+          <a class="btn" href="#contacto" id="btnSideContact">Contacto</a>
         </div>
       </aside>
     </div>
@@ -439,7 +384,7 @@
         </div>
 
         <div class="cta" style="margin-top:14px;">
-          <a class="btn primary" href="#" id="btnQuoteContact">Pedir orçamento no WhatsApp</a>
+          <a class="btn primary" href="#" id="btnContactQuote">Solicitar orçamento</a>
           <a class="btn" href="#inicio" id="btnTop">Voltar ao topo</a>
         </div>
 
@@ -452,140 +397,162 @@
 
   <a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener">
     <span class="wa-dot"></span>
-    <span id="waFloatText">Pedir orçamento</span>
+    <span id="waFloatText">WhatsApp</span>
   </a>
 
   <script>
-    // =====================
-    // CONFIG (edit if needed)
-    // =====================
-    const WHATSAPP_NUMBER = "351934638049"; // <- confirma teu número (351 + número)
+    // ========= CONFIG =========
+    const WHATSAPP_NUMBER = "351934638049"; // só números (351 + número)
+
+    // ========= TEXTS =========
     const LANGS = {
       PT: {
         brandTag: "Mudanças & Transporte • Portugal e Europa",
-        navContact: "Contacto",
-        btnQuote: "Pedir orçamento",
+        btnContactTop: "Contacto",
+        btnTopCTA: "Orçamento grátis",
+
         heroBadge: "🚚 Mudanças • 📦 Embalamento • 🌍 Viagens nacionais e internacionais",
         heroTitle: "Mudanças e transportes com segurança, cuidado e pontualidade.",
         heroText: "A <b>Império Move</b> atende <b>Lisboa</b>, <b>Cascais</b> e <b>todo Portugal</b>, com serviços completos de embalamento, transporte e apoio na mudança. Também realizamos <b>viagens nacionais e internacionais</b> (sob consulta).",
-        btnSeeServices: "Ver serviços",
+
+        btnHeroWhats: "Falar no WhatsApp",
+        btnServices: "Ver serviços",
         btnHow: "Como funciona",
+
         s1Title: "📦 Embalamento profissional",
         s1Text: "Proteção de móveis e objetos frágeis com atenção aos detalhes.",
         s2Title: "🚚 Mudanças & transportes",
         s2Text: "Residencial e comercial — local, nacional e sob consulta internacional.",
         s3Title: "🌍 Viagens nacionais & internacionais",
         s3Text: "Planeamento e logística para outras cidades e para o estrangeiro.",
+
         rightBadge: "✨ Serviço profissional",
         rightTitle: "Orçamento rápido. Equipa cuidadosa. Pontualidade.",
         rightText: "Clique e envie os detalhes: origem, destino, data e volume. Respondemos o mais rápido possível.",
+
         covTitle: "📍 Cobertura",
         covText: "Lisboa • Cascais • Todo Portugal • Europa (sob consulta)",
         fastTitle: "⏱️ Resposta rápida",
         fastText: "WhatsApp direto para agendar e tirar dúvidas.",
+
         p1: "<b>✅ Cuidado:</b> proteção e manuseio seguro",
         p2: "<b>✅ Confiança:</b> serviço profissional",
         p3: "<b>✅ Pontualidade:</b> entrega no prazo",
-        btnContactSide: "Contacto",
+
+        btnSideSim: "Simular valor",
+        btnSideContact: "Contacto",
+
         howTitle: "Como funciona",
-        h1: "1) Pedido",
-        h1t: "Envie origem, destino, data e o que precisa transportar.",
-        h2: "2) Plano",
-        h2t: "Confirmamos detalhes (andares, elevador, volume, embalamento).",
-        h3: "3) Execução",
-        h3t: "Embalamos (se necessário), carregamos e entregamos com segurança.",
-        h4: "4) Finalização",
-        h4t: "Organização básica no destino e confirmação do serviço.",
+        h1: "1) Pedido", h1t: "Envie origem, destino, data e o que precisa transportar.",
+        h2: "2) Plano",  h2t: "Confirmamos detalhes (andares, elevador, volume, embalamento).",
+        h3: "3) Execução", h3t: "Embalamos (se necessário), carregamos e entregamos com segurança.",
+        h4: "4) Finalização", h4t: "Organização básica no destino e confirmação do serviço.",
+
         contactTitle: "Contacto",
         zoneTitle: "📍 Zona",
         zoneText: "Lisboa, Cascais e todo Portugal",
         waTitle: "📲 WhatsApp",
-        waText: "<b>Resposta rápida</b> — clique para pedir orçamento.",
+        waText: "<b>Resposta rápida</b> — clique para falar connosco.",
+        btnContactQuote: "Solicitar orçamento",
         btnTop: "Voltar ao topo",
-        waFloatText: "Pedir orçamento",
+
+        waFloatText: "WhatsApp",
+
         footerTag: "Mudanças & Transporte",
-        waMessage: "Olá! Quero um orçamento com a Império Move.\nOrigem: ____\nDestino: ____\nData: ____\nDetalhes/Volume: ____"
+
+        waMsgQuote: "Olá! Quero um orçamento com a Império Move.\nOrigem: ____\nDestino: ____\nData: ____\nDetalhes/Volume: ____",
+        waMsgChat: "Olá! Gostaria de tirar uma dúvida sobre mudanças/transportes.",
+        waMsgEstimate: "Olá! Quero simular um valor. Origem: ____ | Destino: ____ | Data: ____ | Volume: ____"
       },
       EN: {
         brandTag: "Moving & Transport • Portugal and Europe",
-        navContact: "Contact",
-        btnQuote: "Get a quote",
+        btnContactTop: "Contact",
+        btnTopCTA: "Free quote",
+
         heroBadge: "🚚 Moving • 📦 Packing • 🌍 National & international trips",
         heroTitle: "Moving and transport with safety, care and punctuality.",
         heroText: "<b>Império Move</b> serves <b>Lisbon</b>, <b>Cascais</b> and all <b>Portugal</b>, with full packing, transport and moving support. We also do <b>national and international trips</b> (upon request).",
-        btnSeeServices: "Services",
+
+        btnHeroWhats: "Chat on WhatsApp",
+        btnServices: "Services",
         btnHow: "How it works",
+
         s1Title: "📦 Professional packing",
         s1Text: "Protection for furniture and fragile items with great care.",
         s2Title: "🚚 Moving & transport",
         s2Text: "Residential and commercial — local, national and international on request.",
         s3Title: "🌍 National & international trips",
         s3Text: "Planning and logistics for other cities and abroad.",
+
         rightBadge: "✨ Professional service",
         rightTitle: "Fast quote. Careful team. On-time delivery.",
         rightText: "Click and send details: from, to, date and volume. We reply as fast as possible.",
+
         covTitle: "📍 Coverage",
         covText: "Lisbon • Cascais • Portugal • Europe (on request)",
         fastTitle: "⏱️ Fast response",
         fastText: "Direct WhatsApp for scheduling and questions.",
+
         p1: "<b>✅ Care:</b> safe handling and protection",
         p2: "<b>✅ Trust:</b> professional service",
         p3: "<b>✅ On-time:</b> delivery as scheduled",
-        btnContactSide: "Contact",
+
+        btnSideSim: "Estimate price",
+        btnSideContact: "Contact",
+
         howTitle: "How it works",
-        h1: "1) Request",
-        h1t: "Send pickup, destination, date and what you need to move.",
-        h2: "2) Plan",
-        h2t: "We confirm details (floors, elevator, volume, packing).",
-        h3: "3) Execution",
-        h3t: "We pack (if needed), load and deliver safely.",
-        h4: "4) Finish",
-        h4t: "Basic organization at destination and service confirmation.",
+        h1: "1) Request", h1t: "Send pickup, destination, date and what you need to move.",
+        h2: "2) Plan",    h2t: "We confirm details (floors, elevator, volume, packing).",
+        h3: "3) Execution", h3t: "We pack (if needed), load and deliver safely.",
+        h4: "4) Finish", h4t: "Basic organization at destination and service confirmation.",
+
         contactTitle: "Contact",
         zoneTitle: "📍 Area",
         zoneText: "Lisbon, Cascais and all Portugal",
         waTitle: "📲 WhatsApp",
-        waText: "<b>Fast reply</b> — click to get a quote.",
+        waText: "<b>Fast reply</b> — click to chat with us.",
+        btnContactQuote: "Request a quote",
         btnTop: "Back to top",
-        waFloatText: "Get a quote",
+
+        waFloatText: "WhatsApp",
+
         footerTag: "Moving & Transport",
-        waMessage: "Hello! I’d like a quote with Império Move.\nFrom: ____\nTo: ____\nDate: ____\nDetails/Volume: ____"
+
+        waMsgQuote: "Hello! I’d like a quote with Império Move.\nFrom: ____\nTo: ____\nDate: ____\nDetails/Volume: ____",
+        waMsgChat: "Hello! I have a question about moving/transport services.",
+        waMsgEstimate: "Hello! I’d like to estimate a price. From: ____ | To: ____ | Date: ____ | Volume: ____"
       }
     };
 
-    // =====================
-    // Helpers
-    // =====================
+    // ========= HELPERS =========
     const $ = (id) => document.getElementById(id);
 
-    let currentLang = "PT";
-
-    function buildWaLink(message){
+    function waLink(message){
       return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     }
+
+    let currentLang = "PT";
 
     function applyLang(langKey){
       currentLang = langKey;
       const t = LANGS[langKey];
 
-      // Pills
       $("langPT").classList.toggle("active", langKey === "PT");
       $("langEN").classList.toggle("active", langKey === "EN");
 
-      // Top texts
       $("brandTag").textContent = t.brandTag;
-      $("navContact").textContent = t.navContact;
-      $("btnQuoteTop").textContent = t.btnQuote;
 
-      // Hero
+      $("btnContactTop").textContent = t.btnContactTop;
+      $("btnTopCTA").textContent = t.btnTopCTA;
+
       $("heroBadge").textContent = t.heroBadge;
       $("heroTitle").textContent = t.heroTitle;
       $("heroText").innerHTML = t.heroText;
 
-      $("btnSeeServices").textContent = t.btnSeeServices;
+      $("btnHeroWhats").textContent = t.btnHeroWhats;
+      $("btnServices").textContent = t.btnServices;
       $("btnHow").textContent = t.btnHow;
 
-      // Services
       $("s1Title").textContent = t.s1Title;
       $("s1Text").textContent = t.s1Text;
       $("s2Title").textContent = t.s2Title;
@@ -593,7 +560,6 @@
       $("s3Title").textContent = t.s3Title;
       $("s3Text").textContent = t.s3Text;
 
-      // Right card
       $("rightBadge").textContent = t.rightBadge;
       $("rightTitle").textContent = t.rightTitle;
       $("rightText").textContent = t.rightText;
@@ -607,48 +573,40 @@
       $("p2").innerHTML = t.p2;
       $("p3").innerHTML = t.p3;
 
-      $("btnContactSide").textContent = t.btnContactSide;
+      $("btnSideSim").textContent = t.btnSideSim;
+      $("btnSideContact").textContent = t.btnSideContact;
 
-      // How
       $("howTitle").textContent = t.howTitle;
-      $("h1").textContent = t.h1;
-      $("h1t").textContent = t.h1t;
-      $("h2").textContent = t.h2;
-      $("h2t").textContent = t.h2t;
-      $("h3").textContent = t.h3;
-      $("h3t").textContent = t.h3t;
-      $("h4").textContent = t.h4;
-      $("h4t").textContent = t.h4t;
+      $("h1").textContent = t.h1;   $("h1t").textContent = t.h1t;
+      $("h2").textContent = t.h2;   $("h2t").textContent = t.h2t;
+      $("h3").textContent = t.h3;   $("h3t").textContent = t.h3t;
+      $("h4").textContent = t.h4;   $("h4t").textContent = t.h4t;
 
-      // Contact
       $("contactTitle").textContent = t.contactTitle;
       $("zoneTitle").textContent = t.zoneTitle;
       $("zoneText").textContent = t.zoneText;
       $("waTitle").textContent = t.waTitle;
       $("waText").innerHTML = t.waText;
+      $("btnContactQuote").textContent = t.btnContactQuote;
       $("btnTop").textContent = t.btnTop;
 
-      // Footer + WA float
-      $("footerTag").textContent = t.footerTag;
       $("waFloatText").textContent = t.waFloatText;
+      $("footerTag").textContent = t.footerTag;
 
-      // WhatsApp links
-      const waLink = buildWaLink(t.waMessage);
-      ["waFloat","btnQuoteTop","btnQuoteHero","btnQuoteSide","btnQuoteContact"].forEach(id=>{
-        const el = $(id);
-        if(el) el.setAttribute("href", waLink);
-      });
+      // Links (cada botão com mensagem diferente, sem repetição)
+      $("btnTopCTA").href = waLink(t.waMsgQuote);
+      $("btnHeroWhats").href = waLink(t.waMsgChat);
+      $("btnSideSim").href = waLink(t.waMsgEstimate);
+      $("btnContactQuote").href = waLink(t.waMsgQuote);
+      $("waFloat").href = waLink(t.waMsgChat);
     }
 
-    // =====================
-    // Init
-    // =====================
+    // ========= INIT =========
     $("year").textContent = new Date().getFullYear();
 
     $("langPT").addEventListener("click", ()=> applyLang("PT"));
     $("langEN").addEventListener("click", ()=> applyLang("EN"));
 
-    // Default language
     applyLang("PT");
   </script>
 </body>
